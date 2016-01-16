@@ -2,47 +2,47 @@ from unittest import TestCase
 from day1 import Day1
 
 class TestDay1(TestCase):
-    def test_calculate1(self):
+    def test_destination1(self):
         expected = 0
-        actual = Day1.calculate("(())")
+        actual = Day1("(())").destination()
         self.assertEqual(actual, expected)
 
-    def test_calculate2(self):
+    def test_destination2(self):
         expected = 0
-        actual = Day1.calculate("()()")
+        actual = Day1("()()").destination()
         self.assertEqual(actual, expected)
 
-    def test_calculate3(self):
+    def test_destination3(self):
         expected = 3
-        actual = Day1.calculate("(((")
+        actual = Day1("(((").destination()
         self.assertEqual(actual, expected)
 
-    def test_calculate4(self):
+    def test_destination4(self):
         expected = 3
-        actual = Day1.calculate("(()(()(")
+        actual = Day1("(()(()(").destination()
         self.assertEqual(actual, expected)
 
-    def test_calculate5(self):
+    def test_destination5(self):
         expected = 3
-        actual = Day1.calculate("))(((((")
+        actual = Day1("))(((((").destination()
         self.assertEqual(actual, expected)
 
-    def test_calculate6(self):
+    def test_destination6(self):
         expected = -1
-        actual = Day1.calculate("())")
+        actual = Day1("())").destination()
         self.assertEqual(actual, expected)
 
-    def test_calculate7(self):
+    def test_destination7(self):
         expected = -1
-        actual = Day1.calculate("))( ")
+        actual = Day1("))( ").destination()
         self.assertEqual(actual, expected)
 
-    def test_calculate8(self):
+    def test_destination8(self):
         expected = -3
-        actual = Day1.calculate(")))")
+        actual = Day1(")))").destination()
         self.assertEqual(actual, expected)
 
-    def test_calculate9(self):
+    def test_destination9(self):
         expected = -3
-        actual = Day1.calculate(")())())")
+        actual = Day1(")())())").destination()
         self.assertEqual(actual, expected)

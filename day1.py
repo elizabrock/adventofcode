@@ -1,9 +1,12 @@
 import math
 
 class Day1:
-    @staticmethod
-    def calculate(input):
-        return input.count("(") - input.count(")")
+    def __init__(self, input):
+        self._input = input
+
+    def destination(self):
+        return self._input.count("(") - self._input.count(")")
 
 advent_code = open('day1_input.txt', 'r').read()
-print(Day1.calculate(advent_code))
+santa_floor = Day1(advent_code).destination()
+print("Santa ends up on floor {0}.".format(santa_floor))
