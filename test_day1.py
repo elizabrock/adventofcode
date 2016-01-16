@@ -46,3 +46,23 @@ class TestDay1(TestCase):
         expected = -3
         actual = Day1(")())())").destination()
         self.assertEqual(actual, expected)
+
+    def test_enters_basement_at_1(self):
+        expected = 1
+        actual = Day1(")").enters_basement_at()
+        self.assertEqual(actual, expected)
+
+    def test_enters_basement_at_3(self):
+        expected = 3
+        actual = Day1("())").enters_basement_at()
+        self.assertEqual(actual, expected)
+
+    def test_enters_basement_at_5(self):
+        expected = 5
+        actual = Day1("()())").enters_basement_at()
+        self.assertEqual(actual, expected)
+
+    def test_enters_basement_never(self):
+        expected = -1
+        actual = Day1("()()").enters_basement_at()
+        self.assertEqual(actual, expected)
