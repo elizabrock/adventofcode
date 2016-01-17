@@ -1,20 +1,23 @@
 from collections import defaultdict
 
-class TravelPath:
-
-    def __init__(self, path):
-        self._current_x = 0
-        self._current_y = 0
+class Path:
+    def __init__(self):
         self._locations_visited = defaultdict(lambda: 0)
-        self._locations_visited[(0,0)] = 1
-        for direction in path:
-            self.travel(direction)
+
+    def mark_visit_to(self, x, y):
+        self._locations_visited[(x, y)] += 1
 
     def houses_visited(self):
         return len(self._locations_visited)
 
+class Traveler:
+    def __init__(self, path):
+        self._path = path;
+        self._current_x = 0
+        self._current_y = 0
+        self.__send_location()
+
     def travel(self, direction):
-        # increment x and y
         # north (^), south (v), east (>), or west (<)
         if direction == '^':
             self._current_y += 1
@@ -24,10 +27,20 @@ class TravelPath:
             self._current_x += 1
         elif direction == '<':
             self._current_x -= 1
-        # enter new location in hash
-        self._locations_visited[(self._current_x, self._current_y)] += 1
+        self.__send_location()
+
+    def __send_location(self):
+        self._path.mark_visit_to(self._current_x, self._current_y)
+
+class Router:
+    @classmethod
+    def route(self, traveler, directions):
+        for direction in directions:
+            traveler.travel(direction)
 
 if __name__ == "__main__":
-    path = open('day3_input.txt', 'r').read()
-    traveled_path = TravelPath(path)
+    directions = open('day3_input.txt', 'r').read()
+    traveled_path = Path()
+    traveler = Traveler(traveled_path)
+    Router.route(traveler, directions)
     print("Santa will visit {0} houses.".format(traveled_path.houses_visited()))
