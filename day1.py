@@ -1,5 +1,3 @@
-import math
-
 class Day1:
     def __init__(self, input):
         self._input = input
@@ -18,8 +16,9 @@ class Day1:
                 return i + 1
         return -1
 
-advent_code = open('day1_input.txt', 'r').read()
-santa_floor = Day1(advent_code).destination()
-print("Santa ends up on floor {0}.".format(santa_floor))
-basement_floor = Day1(advent_code).enters_basement_at()
-print("Santa first entered the basement on floor {0}.".format(basement_floor))
+if __name__ == "__main__":
+    advent_code = open('day1_input.txt', 'r').read()
+    santa_floor = Day1(advent_code).destination()
+    print("Santa ends up on floor {0}.".format(santa_floor))
+    basement_floor = Day1(advent_code).enters_basement_at()
+    print("Santa first entered the basement on floor {0}.".format(basement_floor))
