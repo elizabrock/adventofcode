@@ -41,7 +41,7 @@ class Router:
             travelers.rotate(1)
 
 if __name__ == "__main__":
-    directions = open('day3_input.txt', 'r').read()
+    directions = open('input/day3_input.txt', 'r').read()
     traveled_path = Path()
     traveler = Traveler(traveled_path)
     Router.route(directions, traveler)

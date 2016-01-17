@@ -66,7 +66,7 @@ class SantasList:
         return nice.count(True)
 
 if __name__ == "__main__":
-    words = open('day5_input.txt', 'r').read()
+    words = open('input/day5_input.txt', 'r').read()
     santas_first_list = SantasList(Word1, words)
     santas_second_list = SantasList(Word2, words)
     print("Santa's list has {0} nice entries according to part 1, but only {1} nice entries according to part 2.".format(santas_first_list.nice_item_count(), santas_second_list.nice_item_count()))

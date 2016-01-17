@@ -17,7 +17,7 @@ class Day1:
         return -1
 
 if __name__ == "__main__":
-    advent_code = open('day1_input.txt', 'r').read()
+    advent_code = open('input/day1_input.txt', 'r').read()
     santa_floor = Day1(advent_code).destination()
     print("Santa ends up on floor {0}.".format(santa_floor))
     basement_floor = Day1(advent_code).enters_basement_at()

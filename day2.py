@@ -49,6 +49,6 @@ class PresentCollection:
         return sum(lengths)
 
 if __name__ == "__main__":
-    present_list = open('day2_input.txt', 'r').read()
+    present_list = open('input/day2_input.txt', 'r').read()
     present_collection = PresentCollection(present_list)
     print("The presents will require {0} sq. ft. of wrapping paper and {1} feet of ribbon".format(present_collection.wrapping_paper_required(), present_collection.ribbon_required()))
