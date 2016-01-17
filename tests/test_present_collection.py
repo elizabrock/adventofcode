@@ -14,6 +14,18 @@ class TestPresentCollection(TestCase):
         actual = PresentCollection(input).wrapping_paper_required()
         self.assertEqual(expected, actual)
 
+    def test_ribbon_required(self):
+        input = '2x3x4\n1x1x10'
+        expected = 48
+        actual = PresentCollection(input).ribbon_required()
+        self.assertEqual(expected, actual)
+
+    def test_ribbon_required_longer(self):
+        input = '2x3x4\n1x1x10\n2x3x4\n1x1x10'
+        expected = 96
+        actual = PresentCollection(input).ribbon_required()
+        self.assertEqual(expected, actual)
+
     def test_count(self):
         input = '2x3x4\n1x1x10'
         expected = 2

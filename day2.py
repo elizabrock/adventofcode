@@ -4,6 +4,19 @@ class Present:
         self._width = width
         self._height = height
 
+    def side_perimeters(self):
+        return [
+                2 * (self._length + self._width),
+                2 * (self._length + self._width),
+                2 * (self._width + self._height),
+                2 * (self._width + self._height),
+                2 * (self._height + self._length),
+                2 * (self._height + self._length)
+                ]
+
+    def volume(self):
+        return self._length * self._width * self._height
+
     def side_areas(self):
         return [
                 self._length * self._width,
@@ -13,6 +26,9 @@ class Present:
                 self._height * self._length,
                 self._height * self._length
                 ]
+
+    def ribbon_required(self):
+        return min(self.side_perimeters()) + self.volume()
 
     def wrapping_paper_required(self):
         return sum(self.side_areas()) + min(self.side_areas())
@@ -28,7 +44,11 @@ class PresentCollection:
         areas = [p.wrapping_paper_required() for p in self._presents]
         return sum(areas)
 
+    def ribbon_required(self):
+        lengths = [p.ribbon_required() for p in self._presents]
+        return sum(lengths)
+
 if __name__ == "__main__":
     present_list = open('day2_input.txt', 'r').read()
     present_collection = PresentCollection(present_list)
-    print("The presents will require {0} sq. ft. of wrapping paper".format(present_collection.wrapping_paper_required()))
+    print("The presents will require {0} sq. ft. of wrapping paper and {1} feet of ribbon".format(present_collection.wrapping_paper_required(), present_collection.ribbon_required()))
